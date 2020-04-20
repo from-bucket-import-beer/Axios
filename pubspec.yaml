@@ -20,6 +20,7 @@ dependencies:
   geolocator: any
   share: any
   intl: any
+  qr_flutter: ^3.1.0
 
 dev_dependencies:
   flutter_test:

@@ -9,14 +9,19 @@ class SuccessfulScreen extends StatelessWidget {
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                height: MediaQuery.of(context).size.height / 1.5,
-                width: MediaQuery.of(context).size.height / 1.5,
-                child: FlareActor(
-                  "assets/flares/checkbox.flr",
-                  fit: BoxFit.contain,
-                  animation: "checkmark_appear"
+              Center(
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 1.5,
+                  width: MediaQuery.of(context).size.height / 1.5,
+                  child: Center(
+                    child: FlareActor(
+                      "assets/flares/checkbox.flr",
+                      fit: BoxFit.contain,
+                      animation: "checkmark_appear"
+                    ),
+                  ),
                 ),
               ),
               SizedBox(

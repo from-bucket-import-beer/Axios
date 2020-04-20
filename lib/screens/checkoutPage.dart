@@ -128,6 +128,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
           var ref = Firestore.instance;
           DateTime now = DateTime.now();
           String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
+          for (var item in shoppingBag){
+            var itemDocID = item["itemID"];
+            var itemDetails = await ref.collection("items").document(itemDocID).get();
+            var itemMap = itemDetails.data;
+            itemMap["quantity"] = int.parse(itemMap["quantity"]) - 1;
+            itemMap["quantity"] = itemMap["quantity"].toString();
+            await ref.collection("items").document(itemDocID).setData(itemMap);
+          }
           Map<String, dynamic> finalisedCart = {
             "cart": shoppingBag,
             "isActive": true,

@@ -188,7 +188,7 @@ class _ShopInventoryState extends State<ShopInventory> {
                                     padding: EdgeInsets.all(12),
                                     child: Icon(Icons.remove_circle_outline),
                                   ),
-                                ) : InkWell(
+                                ) : snapshot.data.documents[index]["quantity"] != "0" ? InkWell(
                                   onTap: (){
                                     addToCart(itemID, int.parse(snapshot.data.documents[index]["price"].toString()), snapshot.data.documents[index]["name"]);
                                   },
@@ -196,7 +196,7 @@ class _ShopInventoryState extends State<ShopInventory> {
                                     padding: EdgeInsets.all(12),
                                     child: Icon(Icons.add_circle_outline),
                                   ),
-                                ),
+                                ) : Icon(Icons.not_interested),
                               );
                             },
                           );
